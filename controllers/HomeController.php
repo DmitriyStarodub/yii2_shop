@@ -55,7 +55,11 @@ class HomeController extends AppController {
     }
 
     public function actionTest() {
-        return test;
+        if(\Yii::$app->request->isAjax ){
+            $this->debug(\Yii::$app->request->POST());
+            return 'test';
+        }
+        return $this->render('test');
     }
 
 }

@@ -11,6 +11,13 @@ $this->registerCssFile('web/css/site.css');
     var wi = screen.width; // ширина  
     var he = document.body.clientHeight; // высота   
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--  подключение файла java script и зависимость скрипта от yii\web\YiiAsset -->
+<?php// $this->registerJsFile('@web/js/scripts.js', ['depends' => 'yii\web\YiiAsset']) ?>
+
+
 <div class="margin-breadcrumb">
     <ol class="breadcrumb">
         <li><a href="/home/index">Home</a></li>
@@ -34,18 +41,52 @@ $this->registerCssFile('web/css/site.css');
         <?php if (!empty($characteristics)): ?>
             <?php foreach ($characteristics as $characteristic): ?>
                 <div class="panel panel-default ">
-                    <div class="panel-heading" align="center"><?= $characteristic->name ?></div>
-                    <div class="panel-body">
-                <?= Html::beginForm(['section/index', 'id' => $id], 'post', ['class' => '']) ?>
-                        <?php if (!empty($characteristicsItems)): ?>
-                         <?= Html::checkbox('items', false, ['label' => 'Все']) ?><br/>
-                            <?php for ($i = 0; $i < count($characteristicsItems); $i++): ?> 
-                                <?php if ($characteristicsItems[$i]['characteristics_id'] == $characteristic->id): ?>
-                                    <?= Html::checkbox('items', false, ['label' => $characteristicsItems[$i]['value']]) ?><br/>                            
-                                <?php endif; ?>
-                            <?php endfor; ?>
-                        <?php endif; ?>
-                        <?= Html::endForm() ?>
+                    <div class="panel-heading">
+                        <div class="row margin-top-5">
+                            <div class="col-xs-10 col-md-10">
+                                <?= $characteristic->name ?>
+                            </div>
+                            <div class="col-xs-2 col-md-2">
+                                <button data-toggle="collapse" type="button" data-target="#<?= $characteristic->id ?>" class="btn-characteristiks" id="btn<?= $characteristic->id ?>" >
+                                    <span id="span<?= $characteristic->id ?>1" class="glyphicon glyphicon-chevron-down padingLeft" aria-hidden="true"></span>
+                                    <span id="span<?= $characteristic->id ?>2" class="glyphicon glyphicon-chevron-up padingLeft hidden" ></span>
+                                </button>
+                                <script>
+                                    // Using multiple unit types within one animation.
+                                    $("#btn<?= $characteristic->id ?>").click(function () {
+                                        
+                                                if (document.getElementById("span<?= $characteristic->id ?>1").className === "glyphicon glyphicon-chevron-down padingLeft hidden")
+                                        {
+                                                document.getElementById("span<?= $characteristic->id ?>1").className = "glyphicon glyphicon-chevron-down padingLeft";
+                                                document.getElementById("span<?= $characteristic->id ?>2").className = "glyphicon glyphicon-chevron-up padingLeft hidden";
+                                        }
+                                        else
+                                        {
+
+                                            document.getElementById("span<?= $characteristic->id ?>1").className = "glyphicon glyphicon-chevron-down padingLeft hidden";
+                                            document.getElementById("span<?= $characteristic->id ?>2").className = "glyphicon glyphicon-chevron-up padingLeft";
+
+                                        }
+                                    });
+
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="<?= $characteristic->id ?>" class="collapse">
+                        <div class="panel-body">
+                            <?= Html::beginForm(['section/index', 'id' => $id], 'post', ['class' => '']) ?>
+                            <?php if (!empty($characteristicsItems)): ?>
+                                <?= Html::checkbox('items', false, ['label' => 'Все']) ?><br/>
+                                <?php for ($i = 0; $i < count($characteristicsItems); $i++): ?> 
+                                    <?php if ($characteristicsItems[$i]['characteristics_id'] == $characteristic->id): ?>
+                                        <?= Html::checkbox('items', false, ['label' => $characteristicsItems[$i]['value']]) ?><br/>                            
+                                    <?php endif; ?>
+                                <?php endfor; ?>
+                            <?php endif; ?>
+                            <?= Html::endForm() ?>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>
