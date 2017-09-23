@@ -3,8 +3,6 @@
 namespace app\controllers;
 
 use app\models\Articles;
-use app\models\Photo;
-
 /**
  * Description of PostController
  *
@@ -28,7 +26,7 @@ class ArticlesController extends AppController {
     public function actionArticle() {
        \Yii::$app->view->params = $this->GetItemsDrobDounMain();
         $id = \Yii::$app->request->get('id');
-        if(!$id) $id = 0;
+        if(!$id) {$id = 0;}
         $articles = Articles::find()->with('photo')->all();
         return $this->render('article', compact('articles', 'id'));
     }

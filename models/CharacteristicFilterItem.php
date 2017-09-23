@@ -7,9 +7,9 @@ use yii\db\ActiveRecord;
  *
  * @author Starodub
  */
-class Characteristics extends ActiveRecord {
+class CharacteristicFilterItem extends ActiveRecord {
     
     public static function tableName() {
-       return 'Characteristics';
+       return 'CharacteristicFilterItem';
     }
 }

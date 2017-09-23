@@ -3,9 +3,6 @@
 namespace app\controllers;
 
 use app\models\Section;
-//use app\models\Product;
-//use app\models\ProductPhoto;
-//use app\controllers\Post;
 
 class SectionController extends AppController {
 

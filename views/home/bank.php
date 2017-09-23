@@ -1,8 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use yii\helpers\Url;
 
 $this->registerCssFile('web/css/shop.css');
 ?>

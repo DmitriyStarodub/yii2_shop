@@ -18,4 +18,10 @@ class Product extends ActiveRecord {
         return $this->hasMany(Photo::className(), ['id' => 'photo_id'])
             ->viaTable('ProductPhoto', ['product_id' => 'id']);
     }
+    
+    public function getCharacteristic()
+    {
+        return $this->hasMany(Characteristic::className(), ['id' => 'characteristic_id'])
+            ->viaTable('ProductCharacteristic', ['product_id' => 'id']);
+    }
 }

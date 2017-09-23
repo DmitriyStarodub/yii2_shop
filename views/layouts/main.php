@@ -31,7 +31,7 @@ AppAsset::register($this);
                         <li class="phone-number">+38(048)222 22 22</li>
                         <li><a href="/home/questions">Вопросы и ответы</a></li>
                         <li><a href="/home/bank">Кредит</a></li>
-                        <li><a href="/home">Доставка и оплата</a></li>
+                        <li><a href="/home/delivery">Доставка и оплата</a></li>
                         <li><a href="/articles/">Новости</a></li>
                         <li><a href="/site/contact">Контакты</a></li>
                     </ul>

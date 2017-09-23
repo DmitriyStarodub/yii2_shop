@@ -48,35 +48,12 @@ $this->registerCssFile('web/css/site.css');
 </div>
 <div class="reviewed">
     <div class="row">
-  <div class="col-xs-4 col-md-2">
-    <a href="#" class="thumbnail">
-      <img src="/images/tovar.jpg" alt="...">
-    </a>
-  </div>
- <div class="col-xs-4 col-md-2">
-    <a href="#" class="thumbnail">
-      <img src="/images/tovar.jpg" alt="...">
-    </a>
-  </div>
- <div class="col-xs-4 col-md-2">
-    <a href="#" class="thumbnail">
-      <img src="/images/tovar.jpg" alt="...">
-    </a>
-  </div>
- <div class="col-xs-4 col-md-2">
-    <a href="#" class="thumbnail">
-      <img src="/images/tovar.jpg" alt="...">
-    </a>
-  </div>
- <div class="col-xs-4 col-md-2">
-    <a href="#" class="thumbnail">
-      <img src="/images/tovar.jpg" alt="...">
-    </a>
-  </div>
- <div class="col-xs-4 col-md-2">
-    <a href="#" class="thumbnail">
-      <img src="/images/tovar.jpg" alt="...">
-    </a>
-  </div>
+        <?php for($i = 0; $i < 6; $i++):?>
+                <div class="col-xs-4 col-md-2">
+                    <a href="#" class="thumbnail">
+                    <img src="/images/tovar.jpg" alt="...">
+                    </a>
+                </div>
+        <?php endfor;?>
 </div>
 </div>

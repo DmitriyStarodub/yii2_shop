@@ -1,8 +1,5 @@
 <?php
-
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use yii\helpers\Url;
 
 $this->registerCssFile('web/css/site.css');
 ?>
@@ -61,7 +58,11 @@ $this->registerCssFile('web/css/site.css');
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
-<div><?= \yii\widgets\LinkPager::widget(['pagination' => $pages])?></div>
+     <div class="row">
+        <div class="col-xs-6 col-md-4 col-md-offset-5 col-sm-offset-5 col-xs-offset-4">
+        <?= \yii\widgets\LinkPager::widget(['pagination' => $pages])?>
+        </div>
+    </div>
     </div>
 </div>
 <div class="reklama1" width = wi>
@@ -70,7 +71,6 @@ $this->registerCssFile('web/css/site.css');
     'width' => '100%',] )?>
 </div>
 <div class="row">
-    
      <?php if (!empty($sections)): ?>
     <?php $j = 0;for ($i = 0; $j < 3; $i++): 
         if ($i == $id):continue; endif;
@@ -93,35 +93,12 @@ $this->registerCssFile('web/css/site.css');
 </div>
 <div class="reviewed">
     <div class="row">
-        <div class="col-xs-4 col-md-2">
-            <a href="#" class="thumbnail">
-                <img src="/images/tovar.jpg" alt="...">
-            </a>
-        </div>
-        <div class="col-xs-4 col-md-2">
-            <a href="#" class="thumbnail">
-                <img src="/images/tovar.jpg" alt="...">
-            </a>
-        </div>
-        <div class="col-xs-4 col-md-2">
-            <a href="#" class="thumbnail">
-                <img src="/images/tovar.jpg" alt="...">
-            </a>
-        </div>
-        <div class="col-xs-4 col-md-2">
-            <a href="#" class="thumbnail">
-                <img src="/images/tovar.jpg" alt="...">
-            </a>
-        </div>
-        <div class="col-xs-4 col-md-2">
-            <a href="#" class="thumbnail">
-                <img src="/images/tovar.jpg" alt="...">
-            </a>
-        </div>
-        <div class="col-xs-4 col-md-2">
-            <a href="#" class="thumbnail">
-                <img src="/images/tovar.jpg" alt="...">
-            </a>
-        </div>
+         <?php for($i = 0; $i < 6; $i++):?>
+                <div class="col-xs-4 col-md-2">
+                    <a href="#" class="thumbnail">
+                    <img src="/images/tovar.jpg" alt="...">
+                    </a>
+                </div>
+        <?php endfor;?>
     </div>
 </div>
